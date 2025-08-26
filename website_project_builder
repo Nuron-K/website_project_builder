@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Ask for project name
+read -p "Enter your project name: " project_name
+
+# Check if folder already exists
+if [ -d "$project_name" ]; then
+    echo "⚠️ Project '$project_name' already exists. Choose a different name."
+    exit 1
+fi
+
+# Create folder structure
+mkdir -p "$project_name"/{css,imgs,javascript}
+
+# Create index.html with basic content
+cat <<EOF > "$project_name/index.html"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$project_name</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Welcome to $project_name</h1>
+    <script src="javascript/main.js"></script>
+</body>
+</html>
+EOF
+
+# Create style.css with starter content
+cat <<EOF > "$project_name/css/style.css"
+/* Basic styles for $project_name */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+EOF
+
+# Create main.js with starter content
+cat <<EOF > "$project_name/javascript/main.js"
+// JavaScript for $project_name
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Welcome to $project_name!");
+});
+EOF
+
+echo "✅ Project '$project_name' created successfully!"
