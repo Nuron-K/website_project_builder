@@ -19,4 +19,4 @@ Run the script and enter your desired project name when prompted. The script wil
 
 ## Author
 
-Created with ❤️ by SHATHA with my copolot help
+Created with ❤️ by Shath Warag
